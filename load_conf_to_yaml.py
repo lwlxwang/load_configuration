@@ -1,6 +1,5 @@
 # coding=utf8
 import sdtables
-import pprint
 import yaml
 import os
 

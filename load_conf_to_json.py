@@ -1,12 +1,16 @@
 # coding=utf8
 import sdtables
-import pprint
 import json
+import os
 
-source = "configuration_data.xlsx"
-config = sdtables.load_xl_db(source)
+for config in os.listdir("configurations"):
+    if config.endswith(".xlsx"):
+        c = sdtables.load_xl_db("configurations/" + config)
+        host = config[:-5]
 
-with open('configuration_data.json', 'w') as json_file:
-    json.dump(config, json_file)
+        with open("output/" + host + '.json', 'w') as yaml_file:
+            json.dump(c, yaml_file)
 
-print(f"[!] Configuration has been loaded from {source}")
+        print(f"[!] Configuration has been loaded for {host}")
+    else:
+        print("[-] Not a configuration file!")
