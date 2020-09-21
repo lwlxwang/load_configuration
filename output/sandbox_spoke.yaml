@@ -1,8 +1,9 @@
-sandbox_spoke:
+conf:
   bgp:
   - asn: 65011
-    lo_200_ip: 10.50.1.2
-    lo_200_mask: 255.255.255.255
+    lo_id: 200
+    lo_ip: 10.50.1.2
+    lo_mask: 255.255.255.255
     peer_asn: 65010
   vrfs:
   - ipsec_profile: IPSEC
