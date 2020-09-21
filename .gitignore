@@ -6,5 +6,3 @@ lib64
 share/
 pyvenv.cfg
 
-# Ignore Excels
-configurations/
