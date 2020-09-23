@@ -6,3 +6,5 @@ lib64
 share/
 pyvenv.cfg
 
+# Ignore docker_output
+docker_output/
