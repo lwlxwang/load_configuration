@@ -1,4 +1,4 @@
-FROM python:3-slim-buster
+FROM python:3-alpine
 LABEL maintainer="tj@tjkarjalainen.com"
 COPY requirements.txt /requirements.txt
 COPY load_conf_to_json.py /src/load_conf_to_json.py
