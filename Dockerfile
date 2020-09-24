@@ -1,12 +1,7 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get -y install python3
-RUN apt-get -y install python3-pip
+FROM python:3-slim-buster
+LABEL maintainer="tj@tjkarjalainen.com"
 COPY requirements.txt /requirements.txt
-COPY configurations/ /configurations
-COPY load_conf_to_json.py /load_conf_to_json.py
-COPY load_conf_to_yaml.py /load_conf_to_yaml.py
-RUN ["pip3", "install", "-r", "requirements.txt"]
-RUN ["mkdir", "output"]
-RUN ["python3", "load_conf_to_json.py"]
-RUN ["python3", "load_conf_to_yaml.py"]
+RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /src
+RUN python load_conf_to_json.py
+RUN python load_conf_to_yaml.py
