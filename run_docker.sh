@@ -5,7 +5,9 @@
 
 container=load_configuration
 
-docker run -dit --name $container load_configuration:latest
+docker run -it --name $container \
+    -v $(pwd)/configurations:/configurations \
+    $container
 docker cp $container:/output/. docker_output
 docker stop $container
 docker rm $container
